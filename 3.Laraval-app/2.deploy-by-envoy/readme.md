@@ -1,0 +1,7 @@
+'10.Laravel Envoy installation and setup.mp4'        '4.LEMP stack installation and setup.mp4'
+'11.Linux Interactive shell potential pitfalls.mp4'  '5.GIT repo setup and Nginx configuration.mp4'
+'12.Laravel Envoy deployment script.mp4'             '6.Install Laravel project on server.mp4'
+'13.Creating Laravel Envoy stories.mp4'              '7.First project build on the live server.mp4'
+'1. Deploying Laravel using Envoy.mp4'               '8.Laravel folder permissions and config file .mp4'
+'2.Local project setup .mp4'                         '9.Laravel production commands and migrations.mp4'
+'3.Sever creation and firewall setup .mp4'
