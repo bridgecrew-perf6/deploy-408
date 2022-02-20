@@ -49,12 +49,28 @@ sudo ufw allow https
 
 # 4.LEMP stack installation and setup
 
+```
+adduser mark
+usermod -aG sudo mark
+rsync --archive --chown=mark:mark ~/.ssh /home/mark
+
+sudo apt install ngnix
+sudo apt install mysql-server
+sudo apt install php-fpm php-mysql php-dom php-mbstring php-cli php-zip wget unzip php7.4-xml -y
+
+
+```
 
 ### 5.GIT repo setup and Nginx configuration
+
+
 ### 6.Install Laravel project on server
 ### 7.First project build on the live server
 ### 8.Laravel folder permissions and config file
 ### 9.Laravel production commands and migrations
+
+
+
 ### 10.Laravel Envoy installation and setup 
 ### 11.Linux Interactive shell potential pitfalls
 ### 12.Laravel Envoy deployment script
