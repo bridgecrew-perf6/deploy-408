@@ -11,6 +11,15 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 
 ### 2.Local project setup
 
+
+
+## 1.Install Composer using detailed installation instructions [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+
+```
+wget https://getcomposer.org/composer.phar
+chmod +x composer.phar
+sudo mv composer.phar /usr/local/bin/composer
+```
 ```
 ssh -V
 git clone https://github.com/Labs64/laravel-boilerplate.git dploy
