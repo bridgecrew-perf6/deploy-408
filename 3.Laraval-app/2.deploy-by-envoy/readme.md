@@ -1,6 +1,14 @@
 
 # 1. Deploying Laravel using Envoy
 
+
+## System Requirements
+To be able to run Laravel Boilerplate you have to meet the following requirements:
+- PHP >= 7.4
+- PHP Extensions: BCMath, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML, cURL, Mcrypt, GD
+- Node.js >= 8.x
+- Composer >= 1.9.x
+
 ### 2.Local project setup
 
 ```
