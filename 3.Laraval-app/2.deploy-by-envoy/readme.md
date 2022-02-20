@@ -114,12 +114,53 @@ ngnix restart
 ### 6.Install Laravel project on server
 
 ### 7.First project build on the live server
+```
+cp .env.exmple .env
+php artisan config:clear 
 
+```
+- composer install
+
+
+```
+composer install --no-dev
+==> composer fail for 1 gb ram lets create sawp memory
+==>
+==>
+```
+### nvm install
+
+```
+
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+nvm -v
+nvm install node 
+node -v
+npm install --only=prod
+npm run prod
+```
+- again permition deny for ACL
+ 
 ### 8.Laravel folder permissions and config file
+```
+sudo setfacl -Rm u:www-data:rwx, u:deploy:rwx
+sudo setfacl storage/
+sudo setfacl -Rdm u:www-data:rwx, u:deploy:rwx
+```
+- Again 500 eror for artsen key
 
 ### 9.Laravel production commands and migrations
-
-
+```
+php artisan key generate
+composer dump-autoload -o
+php artisan route:cache
+php artisan config:cache
+php artisan migrate:fresh --seed
+```
 
 ### 10.Laravel Envoy installation and setup 
 ### 11.Linux Interactive shell potential pitfalls
