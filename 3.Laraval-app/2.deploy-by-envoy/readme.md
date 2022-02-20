@@ -17,8 +17,11 @@ git clone https://github.com/Labs64/laravel-boilerplate.git dploy
 cd dploy
 sudo rm -rf .git
 cp .env.example .env
-
-
+composer install --prefer-dist
+php artisan key:generate
+npm install
+npm run dev
+php artisan migrate --seed
 
 ```
 
