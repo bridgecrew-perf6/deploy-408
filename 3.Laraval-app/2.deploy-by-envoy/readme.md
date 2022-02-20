@@ -60,20 +60,15 @@ php artisan migrate --seed
 php artisan serve
 
 ```
-
 ## 3.LEMP Sever creation and firewall setup
 
 ```
-
 sudo ufw app list
 sudo ufw status
 sudo ufw allow ssh
 sudo ufw allow http
 sudo ufw allow https
-```
 
-
-```
 adduser mark
 usermod -aG sudo mark
 rsync --archive --chown=mark:mark ~/.ssh /home/mark
@@ -83,7 +78,6 @@ sudo apt install mysql-server
 sudo apt install php-fpm php-mysql php-dom php-mbstring php-cli php-zip wget unzip php7.4-xml -y
 
 ```
-
 ## 5.GIT repo setup and Nginx configuration
 
 - create new repo on github
@@ -109,28 +103,22 @@ ngnix restart
 
 ```
 
-
 ```
 ## 6.Install Laravel project on server
 cd /var/www/html
 sudo mkdir yourdomain.com
-ls
 sudo rm index.php
-ls
 ls -la
 sudo chown deploy:www-data yourdomain.com
 ls -la
+
 cd
-
 ssh-keygen -t rsa -b 4096 -C 
-ls -ls 
-
 cat id_rsa.pub 
 
-==> set id_rsa.pub to gitgub
+==> set id_rsa.pub to github
 
 git clone ...... yourdomain.com/
-
 
 ```
 
@@ -140,17 +128,11 @@ git clone ...... yourdomain.com/
 ```
 cp .env.exmple .env
 php artisan config:clear 
-
-```
-- composer install
-
-
-```
 composer install --no-dev
-==> composer fail for 1 gb ram lets create sawp memory
-==> ### nvm install
-==>
+
 ```
+- composer fail for 1 gb ram lets create sawp memory
+- ### nvm install
 
 
 ```
@@ -175,10 +157,9 @@ sudo setfacl storage/
 sudo setfacl -Rdm u:www-data:rwx, u:deploy:rwx
 ```
 - Again 500 eror for artsen key
-
+- 9.Laravel production commands and migrations
 ```
-## 9.Laravel production commands and migrations
-
+ 
 php artisan key generate
 composer dump-autoload -o
 php artisan route:cache
