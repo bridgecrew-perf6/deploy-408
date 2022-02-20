@@ -86,10 +86,37 @@ sudo apt install php-fpm php-mysql php-dom php-mbstring php-cli php-zip wget unz
 
 ### 5.GIT repo setup and Nginx configuration
 
+- create new repo on github
+- push code to new repo from local pc
+- create new user "devply" and give all sudo permition 
+
+```
+ps aux|grep ngnix
+
+sudo usermod -aG www-data $USER
+
+cd /etc/nginx/sites-available
+ls -la
+default
+
+sudo unlink /etc/nginx/sites-available/default /etc/nginx/sites-enable
+
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enable
+
+sudo ngnix -t
+
+ngnix start
+ngnix enable
+ngnix restart
+
+```
 
 ### 6.Install Laravel project on server
+
 ### 7.First project build on the live server
+
 ### 8.Laravel folder permissions and config file
+
 ### 9.Laravel production commands and migrations
 
 
@@ -99,7 +126,7 @@ sudo apt install php-fpm php-mysql php-dom php-mbstring php-cli php-zip wget unz
 ### 12.Laravel Envoy deployment script
 ### 13.Creating Laravel Envoy stories
 
-```
+
 
 
 
