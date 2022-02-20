@@ -1,5 +1,12 @@
 
-### 1. Deploying Laravel using Envoy       
+### 1. Deploying Laravel using Envoy
+```
+ssh -V
+
+
+```
+
+
 ### 2.Local project setup
 
 ### 3.Sever creation and firewall setup
