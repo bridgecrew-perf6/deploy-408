@@ -19,7 +19,28 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 wget https://getcomposer.org/composer.phar
 chmod +x composer.phar
 sudo mv composer.phar /usr/local/bin/composer
+
+
+or
+
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
 ```
+## nvm install
+
+```
+
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+
+```
+
 ```
 ssh -V
 git clone https://github.com/Labs64/laravel-boilerplate.git dploy
