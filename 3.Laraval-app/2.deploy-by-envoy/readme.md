@@ -1,20 +1,29 @@
 
-### 1. Deploying Laravel using Envoy.mp4'               
-### 2.Local project setup .mp4'                         
-### 3.Sever creation and firewall setup .mp4'
+### 1. Deploying Laravel using Envoy       
+### 2.Local project setup
 
-# 4.LEMP stack installation and setup.mp4'
+### 3.Sever creation and firewall setup
+
+```
+sudo ufw enable
+sudo ufw status
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+```
+
+# 4.LEMP stack installation and setup
 
 
-### 5.GIT repo setup and Nginx configuration.mp4'
-### 6.Install Laravel project on server.mp4'
-### 7.First project build on the live server.mp4'
-### 8.Laravel folder permissions and config file .mp4'
-### 9.Laravel production commands and migrations.mp4'
-### 10.Laravel Envoy installation and setup.mp4'        
-### 11.Linux Interactive shell potential pitfalls.mp4'  '
-### 12.Laravel Envoy deployment script.mp4'            
-### 13.Creating Laravel Envoy stories.mp4'              
+### 5.GIT repo setup and Nginx configuration
+### 6.Install Laravel project on server
+### 7.First project build on the live server
+### 8.Laravel folder permissions and config file
+### 9.Laravel production commands and migrations
+### 10.Laravel Envoy installation and setup 
+### 11.Linux Interactive shell potential pitfalls
+### 12.Laravel Envoy deployment script
+### 13.Creating Laravel Envoy stories
 
 ```
 
