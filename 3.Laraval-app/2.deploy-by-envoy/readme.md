@@ -100,9 +100,7 @@ ls -la
 default
 
 sudo unlink /etc/nginx/sites-available/default /etc/nginx/sites-enable
-
 sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enable
-
 sudo ngnix -t
 
 ngnix start
@@ -112,6 +110,29 @@ ngnix restart
 ```
 
 ## 6.Install Laravel project on server
+
+```
+cd /var/www/html
+sudo mkdir yourdomain.com
+ls
+sudo rm index.php
+ls
+ls -la
+sudo chown deploy:www-data yourdomain.com
+ls -la
+cd
+
+ssh-keygen -t rsa -b 4096 -C 
+ls -ls 
+
+cat id_rsa.pub 
+
+==> set id_rsa.pub to gitgub
+
+git clone ...... yourdomain.com/
+
+
+```
 
 ## 7.First project build on the live server
 ```
