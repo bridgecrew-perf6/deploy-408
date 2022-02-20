@@ -9,17 +9,16 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 - Node.js >= 8.x
 - Composer >= 1.9.x
 
-### 2.Local project setup
 
 
-
-## 1.Install Composer using detailed installation instructions [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+## 2.Local project setup
+### 1.Install Composer & nvm  [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+### Composer install
 
 ```
 wget https://getcomposer.org/composer.phar
 chmod +x composer.phar
 sudo mv composer.phar /usr/local/bin/composer
-
 
 or
 
@@ -29,7 +28,7 @@ php composer-setup.php
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 ```
-## nvm install
+### nvm install
 
 ```
 
@@ -53,9 +52,10 @@ composer install --prefer-dist
 php artisan key:generate
 npm install
 npm run dev
-php artisan migrate --seed
-php artisan key:generate
+==> 
 
+php artisan migrate --seed
+php artisan serve
 
 ```
 
