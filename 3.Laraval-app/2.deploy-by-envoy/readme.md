@@ -22,6 +22,8 @@ php artisan key:generate
 npm install
 npm run dev
 php artisan migrate --seed
+php artisan key:generate
+
 
 ```
 
