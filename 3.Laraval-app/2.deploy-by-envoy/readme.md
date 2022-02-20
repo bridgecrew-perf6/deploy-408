@@ -1,13 +1,18 @@
 
-### 1. Deploying Laravel using Envoy
-```
-ssh -V
-
-
-```
-
+# 1. Deploying Laravel using Envoy
 
 ### 2.Local project setup
+
+```
+ssh -V
+git clone https://github.com/Labs64/laravel-boilerplate.git dploy
+cd dploy
+sudo rm -rf .git
+cp .env.example .env
+
+
+
+```
 
 ### 3.Sever creation and firewall setup
 
