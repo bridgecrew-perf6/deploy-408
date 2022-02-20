@@ -13,9 +13,10 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 
 ## 2.Local project setup
 ### 1.Install Composer & nvm  [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
-### Composer install
 
 ```
+### Composer install
+
 wget https://getcomposer.org/composer.phar
 chmod +x composer.phar
 sudo mv composer.phar /usr/local/bin/composer
@@ -28,9 +29,10 @@ php composer-setup.php
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 ```
-### nvm install
+
 
 ```
+### nvm install
 
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
@@ -59,7 +61,7 @@ php artisan serve
 
 ```
 
-## 3.Sever creation and firewall setup
+## 3.LEMP Sever creation and firewall setup
 
 ```
 
@@ -70,7 +72,6 @@ sudo ufw allow http
 sudo ufw allow https
 ```
 
-## 4.LEMP stack installation and setup
 
 ```
 adduser mark
@@ -80,7 +81,6 @@ rsync --archive --chown=mark:mark ~/.ssh /home/mark
 sudo apt install ngnix
 sudo apt install mysql-server
 sudo apt install php-fpm php-mysql php-dom php-mbstring php-cli php-zip wget unzip php7.4-xml -y
-
 
 ```
 
@@ -109,9 +109,9 @@ ngnix restart
 
 ```
 
-## 6.Install Laravel project on server
 
 ```
+## 6.Install Laravel project on server
 cd /var/www/html
 sudo mkdir yourdomain.com
 ls
@@ -135,6 +135,8 @@ git clone ...... yourdomain.com/
 ```
 
 ## 7.First project build on the live server
+
+
 ```
 cp .env.exmple .env
 php artisan config:clear 
@@ -146,13 +148,13 @@ php artisan config:clear
 ```
 composer install --no-dev
 ==> composer fail for 1 gb ram lets create sawp memory
+==> ### nvm install
 ==>
-==>
+```
+
+
 ```
 ### nvm install
-
-```
-
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -174,8 +176,9 @@ sudo setfacl -Rdm u:www-data:rwx, u:deploy:rwx
 ```
 - Again 500 eror for artsen key
 
-## 9.Laravel production commands and migrations
 ```
+## 9.Laravel production commands and migrations
+
 php artisan key generate
 composer dump-autoload -o
 php artisan route:cache
