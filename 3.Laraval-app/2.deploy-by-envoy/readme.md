@@ -39,7 +39,8 @@ php artisan key:generate
 ### 3.Sever creation and firewall setup
 
 ```
-sudo ufw enable
+
+sudo ufw app list
 sudo ufw status
 sudo ufw allow ssh
 sudo ufw allow http
