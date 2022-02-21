@@ -17,31 +17,21 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 ```
 ### Composer install
 
-wget https://getcomposer.org/composer.phar
-chmod +x composer.phar
-sudo mv composer.phar /usr/local/bin/composer
-
-or
-
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-php composer-setup.php
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
-```
-
-
-```
 ### nvm install
 
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 nvm -v
 nvm install node 
 node -v
+npm -v
 ```
 
 ```
@@ -60,7 +50,6 @@ php artisan migrate --seed
 php artisan serve
 
 ```
-
 
 ## 3.LEMP Sever creation and firewall setup
 
@@ -104,7 +93,6 @@ sudo ufw allow http
 sudo ufw allow https
 
 ```
-
 - sudo vim /etc/nginx/sites-enabled/defult
 
 ```
@@ -141,7 +129,6 @@ server {
     }
 }
 ```
-
 - cd /var/www/html
 - ls
 - sudo rm index.nginx-debian.html
@@ -150,8 +137,6 @@ server {
 <?php
 phpinfo();
 ```
-
-
 - sudo nginx -t
 - sudo systemctl start nginx
 - sudo systemctl enable nginx
@@ -160,13 +145,10 @@ phpinfo();
 
 ## 5.GIT repo setup and Nginx configuration
 
-
 - create new repo on github
 - push code to new repo from local pc
 - adduser deploy
 - usermod -aG sudo deploy
-
-
 
 ```
 ps aux|grep nginx
@@ -215,43 +197,73 @@ git clone ...... yourdomain.com/
 (edit env file)
 
 ```
-
 php artisan config:cache
+
+### Composer install
+
+cd
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
 composer install --no-dev
+
 ```
-- composer fail for 1 gb ram lets create sawp memory
-- ### nvm install
+Note: (composer fail for 1gb ram lets create sawp memory)
+
+- sawp memory Create commund
+sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
+sudo /sbin/mkswap /var/swap.1
+sudo /sbin/swapon /var/swap.1
+
+composer install --no-dev
+sudo apt install php-curl -y
+composer install --no-dev
 
 ```
 ### nvm install
+
+cd 
+
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 nvm -v
 nvm install node 
 node -v
+npm -v
+ 
+cd /var/www/html/laravel.devopshub.cf
 npm install --only=prod
 npm run prod
+
 ```
-- again permition deny for ACL
  
 ## 8.Laravel folder permissions and config file
+
+- again permition deny for ACL
+
 ```
 sudo setfacl -Rm u:www-data:rwx, u:deploy:rwx
 sudo setfacl storage/
 sudo setfacl -Rdm u:www-data:rwx, u:deploy:rwx
 ```
+
+### 9.Laravel production commands and migrations
+
 - Again 500 eror for artsen key
-- 9.Laravel production commands and migrations
+
+
 ```
- 
-php artisan key generate
+php artisan key:generate
 composer dump-autoload -o
 php artisan route:cache
 php artisan config:cache
 php artisan migrate:fresh --seed
+
 ```
 
 ## 10.Laravel Envoy installation and setup 
