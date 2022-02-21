@@ -211,9 +211,12 @@ git clone ...... yourdomain.com/
 
 ## 7.First project build on the live server
 
+- cp .env.exmple .env
+(edit env file)
+
 ```
-cp .env.exmple .env
-php artisan config:clear 
+
+php artisan config:cache
 composer install --no-dev
 ```
 - composer fail for 1 gb ram lets create sawp memory
