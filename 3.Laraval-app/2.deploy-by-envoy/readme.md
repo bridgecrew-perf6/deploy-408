@@ -160,9 +160,13 @@ phpinfo();
 
 ## 5.GIT repo setup and Nginx configuration
 
+```
 - create new repo on github
 - push code to new repo from local pc
-- create new user "devply" and give all sudo permition 
+- adduser deploy
+- usermod -aG sudo deploy
+
+```
 
 ```
 ps aux|grep ngnix
