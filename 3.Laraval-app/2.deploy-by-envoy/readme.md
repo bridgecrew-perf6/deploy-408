@@ -172,18 +172,12 @@ sudo usermod -aG www-data $USER
 cd /etc/nginx/sites-available
 ls -la
 default
-
 sudo unlink /etc/nginx/sites-available/default /etc/nginx/sites-enable
 sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enable
 sudo ngnix -t
-
-
-sudo nginx -t
 sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl restart nginx
-
-
 ```
 
 ```
@@ -207,16 +201,13 @@ git clone ...... yourdomain.com/
 
 ## 7.First project build on the live server
 
-
 ```
 cp .env.exmple .env
 php artisan config:clear 
 composer install --no-dev
-
 ```
 - composer fail for 1 gb ram lets create sawp memory
 - ### nvm install
-
 
 ```
 ### nvm install
