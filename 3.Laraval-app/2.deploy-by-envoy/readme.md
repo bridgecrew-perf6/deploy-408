@@ -181,10 +181,12 @@ sudo mv default laravel.devopshub.cf.conf
 
 sudo ln -s /etc/nginx/sites-available/laravel.devopshub.cf.conf /etc/nginx/sites-enabled/
 
-sudo ngnix -t
+sudo nginx -t
+sudo systemctl reload nginx
 sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl restart nginx
+
 ```
 
 ```
