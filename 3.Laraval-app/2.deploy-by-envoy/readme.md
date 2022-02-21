@@ -60,27 +60,20 @@ php artisan migrate --seed
 php artisan serve
 
 ```
+
+
 ## 3.LEMP Sever creation and firewall setup
 
+
+- adduser mark
+- usermod -aG sudo mark
+- rsync --archive --chown=mark:mark ~/.ssh /home/mark
+
+- sudo apt install nginx -y
+- sudo apt install mysql-server -y
+- sudo mysql_secure_installation
+``` tips (all y) ```
 ```
-sudo ufw app list
-sudo ufw allow 'Nginx HTTP'
-sudo ufw status
-sudo ufw enable
-
-sudo ufw allow ssh
-sudo ufw allow http
-sudo ufw allow https
-
-adduser mark
-usermod -aG sudo mark
-rsync --archive --chown=mark:mark ~/.ssh /home/mark
-
-sudo apt install nginx -y
-sudo apt install mysql-server -y
-sudo mysql_secure_installation
-(all y)
-
 SELECT user , authentication_string, plugin, host FROM mysql.user;
 
 CREATE USER 'laravel'@'localhost' IDENTIFIED BY '@Ausa4422' ;
@@ -91,24 +84,30 @@ exit;
 mysql -u laravel -p
 SHOW DATABASES;
 exit;
+```
 
+- sudo apt install php-fpm php-mysql php-dom php-mbstring php-cli php-zip wget unzip php7.4-xml -y
+- php -v
 
-sudo apt install php-fpm php-mysql php-dom php-mbstring php-cli php-zip wget unzip php7.4-xml -y
-php -v
-
+```
 
 sudo ufw app list
 sudo ufw allow 'Nginx HTTP'
 sudo ufw status
 sudo ufw enable
-
-
-cd /etc/nginx/sites-enabled
-ls
-sudo vim defult
+sudo ufw app list
+sudo ufw allow 'Nginx HTTP'
+sudo ufw status
+sudo ufw enable
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
 
 ```
 
+- sudo vim /etc/nginx/sites-enabled/defult
+
+```
 server {
     listen 80;
     listen [::]:80;
@@ -147,12 +146,12 @@ cd /var/www/html
 ls
 sudo rm index.nginx-debian.html
 sudo vim index.php
+```
 <?php
 phpinfo();
-
-
-
 ```
+
+
 - sudo nginx -t
 - sudo systemctl start nginx
 - sudo systemctl enable nginx
