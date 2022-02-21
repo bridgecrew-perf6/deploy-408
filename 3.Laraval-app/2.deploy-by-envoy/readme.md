@@ -160,24 +160,27 @@ phpinfo();
 
 ## 5.GIT repo setup and Nginx configuration
 
-```
+
 - create new repo on github
 - push code to new repo from local pc
 - adduser deploy
 - usermod -aG sudo deploy
 
-```
+
 
 ```
-ps aux|grep ngnix
+ps aux|grep nginx
 
 sudo usermod -aG www-data $USER
-
 cd /etc/nginx/sites-available
 ls -la
-default
-sudo unlink /etc/nginx/sites-available/default /etc/nginx/sites-enable
-sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enable
+
+sudo unlink /etc/nginx/sites-enable/default
+
+sudo mv default laravel.devopshub.cf.conf
+
+sudo ln -s /etc/nginx/sites-available/laravel.devopshub.cf.conf /etc/nginx/sites-enabled/
+
 sudo ngnix -t
 sudo systemctl start nginx
 sudo systemctl enable nginx
