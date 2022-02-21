@@ -142,10 +142,10 @@ server {
 }
 ```
 
-cd /var/www/html
-ls
-sudo rm index.nginx-debian.html
-sudo vim index.php
+- cd /var/www/html
+- ls
+- sudo rm index.nginx-debian.html
+- sudo vim index.php
 ```
 <?php
 phpinfo();
