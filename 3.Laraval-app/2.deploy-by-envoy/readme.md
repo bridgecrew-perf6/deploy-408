@@ -199,7 +199,8 @@ sudo chown deploy:www-data laravel.devopshub.cf/
 ls -la
 
 cd
-ssh-keygen -t rsa -b 4096 -C 
+ssh-keygen -t rsa -b 4096 -C "deploy@http://laravel.devopshub.cf"
+cd .ssh
 cat id_rsa.pub 
 
 ==> set id_rsa.pub to github
