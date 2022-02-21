@@ -192,10 +192,10 @@ sudo systemctl restart nginx
 ```
 ## 6.Install Laravel project on server
 cd /var/www/html
-sudo mkdir yourdomain.com
+sudo mkdir laravel.devopshub.cf
 sudo rm index.php
 ls -la
-sudo chown deploy:www-data yourdomain.com
+sudo chown deploy:www-data laravel.devopshub.cf/
 ls -la
 
 cd
