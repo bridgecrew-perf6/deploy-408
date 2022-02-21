@@ -88,6 +88,11 @@ CREATE DATABASE laravel_admin;
 GRANT ALL PRIVILEGES ON laravel_admin.* TO 'laravel'@'localhost';
 exit;
 
+mysql -u laravel -p
+SHOW DATABASES;
+exit;
+
+
 sudo apt install php-fpm php-mysql php-dom php-mbstring php-cli php-zip wget unzip php7.4-xml -y
 
 
