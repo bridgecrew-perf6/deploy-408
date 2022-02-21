@@ -64,7 +64,10 @@ php artisan serve
 
 ```
 sudo ufw app list
+sudo ufw allow 'Nginx HTTP'
 sudo ufw status
+sudo ufw enable
+
 sudo ufw allow ssh
 sudo ufw allow http
 sudo ufw allow https
@@ -73,9 +76,26 @@ adduser mark
 usermod -aG sudo mark
 rsync --archive --chown=mark:mark ~/.ssh /home/mark
 
-sudo apt install ngnix
-sudo apt install mysql-server
+sudo apt install nginx -y
+sudo apt install mysql-server -y
+sudo mysql_secure_installation
+(all y)
+
+SELECT user , authentication_string, plugin, host FROM mysql.user;
+
+CREATE USER 'laravel'@'localhost' IDENTIFIED BY '@Ausa4422' ;
+CREATE DATABASE laravel_admin;
+GRANT ALL PRIVILEGES ON laravel_admin.* TO 'laravel'@'localhost';
+exit;
+
 sudo apt install php-fpm php-mysql php-dom php-mbstring php-cli php-zip wget unzip php7.4-xml -y
+
+
+sudo ufw app list
+sudo ufw allow 'Nginx HTTP'
+sudo ufw status
+sudo ufw enable
+
 
 ```
 ## 5.GIT repo setup and Nginx configuration
