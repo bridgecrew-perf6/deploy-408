@@ -94,12 +94,63 @@ exit;
 
 
 sudo apt install php-fpm php-mysql php-dom php-mbstring php-cli php-zip wget unzip php7.4-xml -y
+php -v
+
 
 
 sudo ufw app list
 sudo ufw allow 'Nginx HTTP'
 sudo ufw status
 sudo ufw enable
+
+
+cd /etc/nginx/sites-enabled
+ls
+sudo vim defult
+
+```
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name example.com;
+    root /var/www/html;
+ 
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-Content-Type-Options "nosniff";
+ 
+    index index.php;
+ 
+    charset utf-8;
+ 
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+ 
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+ 
+    error_page 404 /index.php;
+ 
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+ 
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+```
+
+cd /var/www/html
+ls
+sudo rm index.nginx-debian.html
+sudo vim index.php
+<?php
+phpinfo();
+
 
 
 ```
