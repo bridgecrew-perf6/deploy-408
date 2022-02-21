@@ -97,7 +97,6 @@ sudo apt install php-fpm php-mysql php-dom php-mbstring php-cli php-zip wget unz
 php -v
 
 
-
 sudo ufw app list
 sudo ufw allow 'Nginx HTTP'
 sudo ufw status
@@ -154,6 +153,12 @@ phpinfo();
 
 
 ```
+- sudo nginx -t
+- sudo systemctl start nginx
+- sudo systemctl enable nginx
+- sudo systemctl restart nginx
+
+
 ## 5.GIT repo setup and Nginx configuration
 
 - create new repo on github
@@ -173,9 +178,12 @@ sudo unlink /etc/nginx/sites-available/default /etc/nginx/sites-enable
 sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enable
 sudo ngnix -t
 
-ngnix start
-ngnix enable
-ngnix restart
+
+sudo nginx -t
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl restart nginx
+
 
 ```
 
