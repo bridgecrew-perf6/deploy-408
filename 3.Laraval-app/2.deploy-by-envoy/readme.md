@@ -222,10 +222,12 @@ sudo /sbin/mkswap /var/swap.1
 sudo /sbin/swapon /var/swap.1
 ```
 - #############
+
+```
 composer install --no-dev
 sudo apt install php-curl -y
 composer install --no-dev
-
+```
 
 - nvm install
 ```
