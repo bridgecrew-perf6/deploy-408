@@ -49,18 +49,20 @@ php artisan serve
 
 ## 3.LEMP Sever creation and firewall setup
 
-
-- adduser mark
-- usermod -aG sudo mark
-- rsync --archive --chown=mark:mark ~/.ssh /home/mark
-
-- sudo apt install nginx -y
-- sudo apt install mysql-server -y
-- sudo mysql_secure_installation
-``` tips (all y) ```
 ```
-SELECT user , authentication_string, plugin, host FROM mysql.user;
+adduser mark
+usermod -aG sudo mark
+rsync --archive --chown=mark:mark ~/.ssh /home/mark
+sudo apt install nginx -y
+sudo apt install mysql-server -y
+sudo mysql_secure_installation
+```
+ - tips (all y)
 
+
+```
+
+SELECT user , authentication_string, plugin, host FROM mysql.user;
 CREATE USER 'laravel'@'localhost' IDENTIFIED BY '@Ausa4422' ;
 CREATE DATABASE laravel_admin;
 GRANT ALL PRIVILEGES ON laravel_admin.* TO 'laravel'@'localhost';
@@ -70,12 +72,16 @@ mysql -u laravel -p
 SHOW DATABASES;
 exit;
 ```
+- php fpm install
 
-- sudo apt install php-fpm php-mysql php-dom php-mbstring php-cli php-zip wget unzip php7.4-xml -y
-- php -v
 
 ```
+sudo apt install php-fpm php-mysql php-dom php-mbstring php-cli php-zip wget unzip php-curl  -y
+php -v
 
+```
+- ufw install and setup
+```
 sudo ufw app list
 sudo ufw allow 'Nginx HTTP'
 sudo ufw status
@@ -125,67 +131,72 @@ server {
     }
 }
 ```
-- cd /var/www/html
-- ls
-- sudo rm index.nginx-debian.html
-- sudo vim index.php
+```
+cd /var/www/html
+ls
+sudo rm index.nginx-debian.html
+sudo vim index.php
+```
+
 ```
 <?php
 phpinfo();
 ```
-- sudo nginx -t
-- sudo systemctl start nginx
-- sudo systemctl enable nginx
-- sudo systemctl restart nginx
-
-
+```
+sudo nginx -t
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl restart nginx
+```
 ## 5.GIT repo setup and Nginx configuration
 
 - create new repo on github
 - push code to new repo from local pc
-- adduser deploy
-- usermod -aG sudo deploy
 
 ```
-ps aux|grep nginx
+adduser deploy
+usermod -aG sudo deploy
 
+```
+- ps aux|grep nginx
+```
 sudo usermod -aG www-data $USER
 cd /etc/nginx/sites-available
 ls -la
+```
 
+```
 sudo unlink /etc/nginx/sites-enable/default
-
 sudo mv default laravel.devopshub.cf.conf
-
 sudo ln -s /etc/nginx/sites-available/laravel.devopshub.cf.conf /etc/nginx/sites-enabled/
-
+```
+```
 sudo nginx -t
 sudo systemctl reload nginx
 sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl restart nginx
+```
+- 6.Install Laravel project on server
 
 ```
-
-```
-## 6.Install Laravel project on server
 cd /var/www/html
 sudo mkdir laravel.devopshub.cf
 sudo rm index.php
 ls -la
 sudo chown deploy:www-data laravel.devopshub.cf/
 ls -la
+```
+- #############
 
+```
 cd
 ssh-keygen -t rsa -b 4096 -C "deploy@http://laravel.devopshub.cf"
 cd .ssh
 cat id_rsa.pub 
-
-==> set id_rsa.pub to github
-
-git clone ...... yourdomain.com/
-
 ```
+- set id_rsa.pub to github
+- git clone ...... yourdomain.com/
 
 ## 7.First project build on the live server
 
@@ -194,44 +205,45 @@ git clone ...... yourdomain.com/
 
 ```
 php artisan config:cache
+```
 
-### Composer install
-
+- Composer install
+```
 cd
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 composer install --no-dev
 
 ```
-Note: (composer fail for 1gb ram lets create sawp memory)
-
+- Note: (composer fail for 1gb ram lets create sawp memory)
 - sawp memory Create commund
+
+```
 sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
 sudo /sbin/mkswap /var/swap.1
 sudo /sbin/swapon /var/swap.1
-
+```
+- #############
 composer install --no-dev
 sudo apt install php-curl -y
 composer install --no-dev
 
+
+- nvm install
 ```
-### nvm install
-
 cd 
-
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 nvm -v
 nvm install node 
 node -v
 npm -v
- 
+ ```
+ - #############
+ ```
 cd /var/www/html/laravel.devopshub.cf
 npm install --only=prod
 npm run prod
