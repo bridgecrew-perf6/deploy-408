@@ -156,7 +156,6 @@ sudo systemctl restart nginx
 ```
 adduser deploy
 usermod -aG sudo deploy
-
 ```
 - ps aux|grep nginx
 ```
@@ -164,12 +163,13 @@ sudo usermod -aG www-data $USER
 cd /etc/nginx/sites-available
 ls -la
 ```
-
+- #############
 ```
 sudo unlink /etc/nginx/sites-enable/default
 sudo mv default laravel.devopshub.cf.conf
 sudo ln -s /etc/nginx/sites-available/laravel.devopshub.cf.conf /etc/nginx/sites-enabled/
 ```
+- #############
 ```
 sudo nginx -t
 sudo systemctl reload nginx
@@ -177,7 +177,7 @@ sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl restart nginx
 ```
-- 6.Install Laravel project on server
+## 6.Install Laravel project on server
 
 ```
 cd /var/www/html
@@ -202,7 +202,6 @@ cat id_rsa.pub
 
 - cp .env.exmple .env
 (edit env file)
-
 ```
 php artisan config:cache
 ```
@@ -214,11 +213,9 @@ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 composer install --no-dev
-
 ```
 - Note: (composer fail for 1gb ram lets create sawp memory)
 - sawp memory Create commund
-
 ```
 sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
 sudo /sbin/mkswap /var/swap.1
@@ -247,23 +244,18 @@ npm -v
 cd /var/www/html/laravel.devopshub.cf
 npm install --only=prod
 npm run prod
-
 ```
- 
 ## 8.Laravel folder permissions and config file
 
 - again permition deny for ACL
-
 ```
 sudo setfacl -Rm u:www-data:rwx, u:deploy:rwx
 sudo setfacl storage/
 sudo setfacl -Rdm u:www-data:rwx, u:deploy:rwx
 ```
-
 ### 9.Laravel production commands and migrations
 
 - Again 500 eror for artsen key
-
 
 ```
 php artisan key:generate
@@ -271,7 +263,6 @@ composer dump-autoload -o
 php artisan route:cache
 php artisan config:cache
 php artisan migrate:fresh --seed
-
 ```
 
 ## 10.Laravel Envoy installation and setup 
