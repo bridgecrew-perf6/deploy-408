@@ -10,22 +10,18 @@ To be able to run Laravel Boilerplate you have to meet the following requirement
 - Composer >= 1.9.x
 
 
-
-## 2.Local project setup
 ### 1.Install Composer & nvm  [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
 
-```
-### Composer install
+- Composer install
 
+```
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-
-### nvm install
-
+```
+- nvm install
+```
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 nvm -v
@@ -33,6 +29,8 @@ nvm install node
 node -v
 npm -v
 ```
+
+## 2.Local project setup
 
 ```
 ssh -V
@@ -44,8 +42,6 @@ composer install --prefer-dist
 php artisan key:generate
 npm install
 npm run dev
-==> 
-
 php artisan migrate --seed
 php artisan serve
 
