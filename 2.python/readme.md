@@ -13,4 +13,6 @@
 |python manage.py migrate|# Run the project|
 |python manage.py collectstatic|# Run the project|
 |python manage.py runserver|# Run the project|
+|deactivate|
+
 
